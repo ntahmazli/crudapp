@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add or Modify Student</title>
+    <style>
+
+        .button {
+          background-color: #32a8a2;
+          border: none;
+          color: white;
+          padding: 10px 30px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin: 4px 2px;
+          cursor: pointer;
+          font-family: arial;
+            font-size: 15px;
+        }
+
+        a:link, a:visited {
+           background-color: white;
+            color: black;
+            border: 2px solid green;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover, a:active {
+            background-color: green;
+            color: white;
+        }
+
+        #home {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 10px 30px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin: 4px 2px;
+          cursor: pointer;
+          font-family: arial;
+            font-size: 15px;
+        }
+
+        body {
+            font-family: arial;
+            font-size: 15px;
+        }
+
+</style>
+
+    <script>
+        function validateForm() {
+          var id = document.forms["myForm"]["stId"].value;
+          var first = document.forms["myForm"]["firstName"].value;
+          var last = document.forms["myForm"]["lastName"].value;
+          var major = document.forms["myForm"]["major"].value;
+          if (id == "" || id == null || first == "" || first == null || last == "" || last == null || major == "" || major == null) {
+            alert("Input fields must be filled out");
+            return false;
+          }
+        }
+    </script>
+
+</head>
+<body>
+
+<h1>Add New Student or Modify Student Data</h1>
+<br>
+<form name="myForm" action="#" th:action="@{/app/save}" th:object="${student}" method="POST" onsubmit="return validateForm()">
+    Student ID: <input type="text" th:field="*{stId}"/><br><br>
+    First Name: <input type="text" th:field="*{firstName}"/><br><br>
+    Last Name: <input type="text" th:field="*{lastName}"/><br><br>
+    Major: <input type="text" th:field="*{major}"/><br><br>
+    <input type="submit" value="Save" class="button"/>
+</form>
+
+<p><b><a href="/app/student"> Go Back to Student Information Page </a></b></p>
+
+<form action = "/" method = "GET">
+    <p><b><input type = "submit" value = "Go Back to Home Page" name = "submit" id="home"/></b></p>
+</form>
+
+</body>
+</html>

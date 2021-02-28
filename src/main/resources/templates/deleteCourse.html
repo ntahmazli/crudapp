@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Course</title>
+
+    <style>
+
+    .delete {
+              background-color: #e81717;
+              border: none;
+              color: white;
+              padding: 5px 15px;
+              text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin: 4px 2px;
+          cursor: pointer;
+          font-family: arial;
+            font-size: 15px;
+              }
+
+              #home {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 10px 30px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin: 4px 2px;
+          cursor: pointer;
+          font-family: arial;
+            font-size: 15px;
+        }
+
+         div{
+
+
+                            top:0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+
+                            margin: auto;
+                            height: 10em;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+
+                            width: 300px;
+                            height: 30px;
+                            padding: 20px;
+                            background-color: aliceblue;
+                            border: 2px solid black;
+
+
+         }
+
+        a:link, a:visited {
+           background-color: white;
+            color: black;
+            border: 2px solid green;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover, a:active {
+            background-color: green;
+            color: white;
+        }
+       body {
+
+            font-family: arial;
+            font-size: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Delete Any Course</h1>
+
+<form action="/app/deleteCr" method="GET">
+    Delete Course with ID <input type="text" name="courseId"/>
+    <input type="submit" value="Delete" class="delete">
+</form>
+<form action="/app/deleteCrName" method="GET">
+    Delete Course with Name <input type="text" name="courseName"/>
+    <input type="submit" value="Delete" class="delete">
+</form>
+
+<p><b><a href="/app/course"> Go Back to Course Information Page </a></b></p>
+
+<form action = "/" method = "GET">
+    <p><b><input type = "submit" value = "Go Back to Home Page" name = "submit" id="home"/></b></p>
+</form>
+
+
+
+</body>
+</html>

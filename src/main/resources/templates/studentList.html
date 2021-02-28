@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Info Page</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+
+        caption{
+            font-size: 24px;
+
+        }
+
+        .button {
+          background-color: #8c32a8;
+          border: none;
+          color: white;
+          padding: 5px 15px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin: 4px 2px;
+          cursor: pointer;
+          font-family: arial;
+            font-size: 15px;
+        }
+
+        a:link, a:visited {
+           background-color: white;
+            color: black;
+            border: 2px solid green;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover, a:active {
+            background-color: green;
+            color: white;
+        }
+
+      body {
+            font-family: arial;
+            font-size: 15px;
+        }
+
+        #home {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 10px 30px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin: 4px 2px;
+          cursor: pointer;
+          font-family: arial;
+            font-size: 15px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<table style="width:20%">
+    <caption>Students</caption>
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Major</th>
+        <th>Courses</th>
+
+    </tr>
+    <tr th:each="student:${students}" style="height:20px" align="center" valign="top">
+        <td th:text="${student.stId}"style="vertical-align:bottom">0</td>
+        <td th:text="${student.firstName}"style="vertical-align:bottom">0</td>
+        <td th:text="${student.lastName}"style="vertical-align:bottom">0</td>
+        <td th:text="${student.major}"style="vertical-align:bottom">0</td>
+        <td>
+            <select>
+                <option th:each="course : ${student.courses}" th:text="${course.courseName}" th:value="${course.courseId}">
+                </option>
+            </select>
+        </td>
+    </tr>
+</table>
+<br>
+
+<form action="/app/findCourseByStId" method="GET">
+    Find Courses By Student ID <input type="text" name="stId"/>
+    <input type="submit" value="Find"  class="button">
+</form>
+
+<p><b><a href="/app/student"> Go Back to Student Information Page</a></b></p>
+
+<form action = "/" method = "GET">
+    <p><b><input type = "submit" value = "Go Back to Home Page" name = "submit" id="home"/></b></p>
+</form>
+
+</body>
+</html>
